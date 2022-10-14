@@ -15,7 +15,7 @@ class Gameshould {
         boolean[][] emptyBoard = new boolean[10][10];
         game = new Game(emptyBoard);
         game.nextGen();
-        assertThat(emptyBoard).isEqualTo(game.getBoard());
+        assertThat(game.getBoard()).isEqualTo(emptyBoard);
     }
 
     @Test public void
@@ -30,7 +30,7 @@ class Gameshould {
         game.nextGen();
         game.nextGen();
         game.nextGen();
-        assertThat(inputBoard).isEqualTo(game.getBoard());
+        assertThat(game.getBoard()).isEqualTo(inputBoard);
     }
 
     @Test public void
@@ -44,7 +44,6 @@ class Gameshould {
         boolean[][] expectedBoard = new boolean[4][4];
         game = new Game(inputBoard);
         game.nextGen();
-        assertEquals(expectedBoard, game.getBoard());
-        assertThat(inputBoard).isEqualTo(game.getBoard());
+        assertThat(game.getBoard()).isEqualTo(expectedBoard);
     }
 }
