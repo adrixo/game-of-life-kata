@@ -58,9 +58,6 @@ public class FullHashMapBoard implements Board {
         int neighbours = 0;
         Coordinate position = cell.position;
         for (Coordinate neighbourPosition : cell.position.getNeighbours()) {
-            if (neighbourPosition.equals(position))
-                continue;
-
             if (!board.containsKey(neighbourPosition))
                 continue;
 
