@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FullHashMapBoard implements Board {
-    // Responsability of apply rules on board
+    // Responsibility of apply rules on board
 
     final HashMap<Coordinate, Cell> board;
     private final Coordinate bounds;
@@ -21,10 +21,10 @@ public class FullHashMapBoard implements Board {
         ArrayList<Cell> cellsToBorn = new ArrayList<>();
         // what do we iterate, cells or coordinates?
         // iterate cells ->
-        //     where is the coordinate? inside the cell, thats not necessary
+        //     where is the coordinate? inside the cell, that's not necessary
         //     easier to read
         // Iterate coordinates ->
-        //     less responsibilities on the cell,
+        //     fewer responsibilities on the cell,
         //     Should the cell know about itself?
         for(Cell cell : board.values()) {
             int neighbours = getAliveNeighboursOf(cell);
