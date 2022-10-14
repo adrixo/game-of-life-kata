@@ -40,4 +40,6 @@ Memory usage goes always to high x width
 Using alive + dead neighbours ->
 infinite board
 memory usage reduced
-- need to calculate the dead neighbours in each step, can have exponential growth if the game tent to spread (Could we solve this problem through code? maybe assign/unassigned neighbours during process, this could make the whole game completely scalable and cells could work using parallelism)
+- need to calculate the dead neighbours in each step, can have exponential growth if the game tent to spread (Could we solve this problem through code? maybe assign/unassigned neighbours during process, this could make the whole game completely scalable and cells could work using parallelism
+
+How can we implement this on golang?!
