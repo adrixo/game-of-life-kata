@@ -1,9 +1,12 @@
 package game;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FullHashMapBoard implements Board {
-    final HashMap<Coordinate, Boolean> board;
+    // Responsability of apply rules on board
+
+    final HashMap<Coordinate, Cell> board;
     private final Coordinate bounds;
 
     public FullHashMapBoard(boolean[][] board) {
@@ -12,11 +15,11 @@ public class FullHashMapBoard implements Board {
 
     }
 
-    private HashMap<Coordinate, Boolean> setUpBoardFrom(boolean[][] board) {
-        HashMap<Coordinate, Boolean> hashmapBoard = new HashMap<>();
+    private HashMap<Coordinate, Cell> setUpBoardFrom(boolean[][] board) {
+        HashMap<Coordinate, Cell> hashmapBoard = new HashMap<>();
         for (int x = 0; x < bounds.x; x++) {
             for (int y = 0; y < bounds.y; y++) {
-                hashmapBoard.put(new Coordinate(x, y), board[x][y]);
+                hashmapBoard.put(new Coordinate(x, y), new Cell(board[x][y]));
             }
         }
         return hashmapBoard;
@@ -32,11 +35,15 @@ public class FullHashMapBoard implements Board {
 
         for (int x = 0; x < bounds.x; x++) {
             for (int y = 0; y < bounds.y; y++) {
-                boolean cellIsAlive = board.get(new Coordinate(x, y));
+                boolean cellIsAlive = board.get(new Coordinate(x, y)).status;
                 parsedBoard[x][y] = cellIsAlive;
             }
         }
         return parsedBoard;
+    }
+
+    @Override
+    public void nextGen() {
     }
 
 }

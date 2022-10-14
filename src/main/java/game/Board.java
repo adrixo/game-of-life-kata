@@ -1,5 +1,7 @@
 package game;
 
 public interface Board {
-    public boolean[][] getBoard();
+    boolean[][] getBoard();
+
+    void nextGen();
 }

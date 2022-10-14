@@ -9,6 +9,7 @@ public class Game {
     }
 
     public void nextGen() {
+        this.board.nextGen();
     }
 
     public boolean[][] getBoard() {
