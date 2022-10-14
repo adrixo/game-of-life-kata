@@ -46,4 +46,23 @@ class Gameshould {
         game.nextGen();
         assertThat(game.getBoard()).isEqualTo(expectedBoard);
     }
+
+    @Test public void
+    cells_die_by_over_population() {
+        boolean[][] inputBoard = {
+                {false, false, false, false},
+                {false, true,  false, false},
+                {false, true,  true,  true},
+                {false, false, false, true}
+        };
+        boolean[][] expectedBoard = {
+                {false, false, false, false},
+                {false, true,  false, false},
+                {false, true,  false,  true},
+                {false, false, false, true}
+        };
+        game = new Game(inputBoard);
+        game.nextGen();
+        assertThat(game.getBoard()).isEqualTo(expectedBoard);
+    }
 }

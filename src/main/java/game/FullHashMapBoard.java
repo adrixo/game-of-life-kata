@@ -27,7 +27,7 @@ public class FullHashMapBoard implements Board {
         //     Should the cell know about itself?
         for(Cell cell : board.values()) {
             int neighbours = getNeighboursOf(cell);
-            if (cell.isAlive && neighbours <= 1) {
+            if (cell.isAlive && (neighbours <= 1 || neighbours >= 4) ) {
                 cellsToKill.add(cell);
             }
         }
