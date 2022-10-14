@@ -27,7 +27,7 @@ public class FullHashMapBoard implements Board {
         //     less responsibilities on the cell,
         //     Should the cell know about itself?
         for(Cell cell : board.values()) {
-            int neighbours = getNeighboursOf(cell);
+            int neighbours = getAliveNeighboursOf(cell);
             if (cell.isAlive && (neighbours <= 1 || neighbours >= 4) ) {
                 cellsToKill.add(cell);
             }
@@ -50,7 +50,7 @@ public class FullHashMapBoard implements Board {
         }
     }
 
-    private int getNeighboursOf(Cell cell) {
+    private int getAliveNeighboursOf(Cell cell) {
         int neighbours = 0;
         Coordinate position = cell.position;
         for (Coordinate neighbourPosition : cell.position.getNeighbours()) {
