@@ -33,4 +33,17 @@ class Gameshould {
         assertEquals(aliveCells, game.getBoard());
     }
 
+    @Test public void
+    cells_die_from_under_population() {
+        boolean[][] board = {
+                {false, false, false, false},
+                {true, false, false, false},
+                {false, false, false, true},
+                {false, false, true, false}
+        };
+        boolean[][] expectedBoard = new boolean[4][4];
+        game = new Game(board);
+        game.nextGen();
+        assertEquals(expectedBoard, game.getBoard());
+    }
 }
