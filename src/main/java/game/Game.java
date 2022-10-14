@@ -1,5 +1,8 @@
 package game;
 
+import game.board.Board;
+import game.board.FullHashMapBoard;
+
 public class Game {
 
     private final Board board;

@@ -1,4 +1,7 @@
-package game;
+package game.board;
+
+import game.Cell;
+import game.Coordinate;
 
 import java.util.ArrayList;
 import java.util.HashMap;
