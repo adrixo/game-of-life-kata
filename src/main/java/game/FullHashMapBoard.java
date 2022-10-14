@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public class FullHashMapBoard implements Board {
     // Responsibility of apply rules on board
+    // hashmap with all the cells
 
     final HashMap<Coordinate, Cell> board;
     private final Coordinate bounds;
