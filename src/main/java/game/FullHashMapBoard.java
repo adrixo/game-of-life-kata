@@ -18,6 +18,7 @@ public class FullHashMapBoard implements Board {
     @Override
     public void nextGen() {
         ArrayList<Cell> cellsToKill = new ArrayList<>();
+        ArrayList<Cell> cellsToBorn = new ArrayList<>();
         // what do we iterate, cells or coordinates?
         // iterate cells ->
         //     where is the coordinate? inside the cell, thats not necesarry
@@ -30,8 +31,11 @@ public class FullHashMapBoard implements Board {
             if (cell.isAlive && (neighbours <= 1 || neighbours >= 4) ) {
                 cellsToKill.add(cell);
             }
+            if (!cell.isAlive && neighbours == 3)
+                cellsToBorn.add(cell);
         }
         killCells(cellsToKill);
+        bornCells(cellsToBorn);
     }
 
     private void killCells(ArrayList<Cell> cells) {
@@ -39,6 +43,13 @@ public class FullHashMapBoard implements Board {
             cell.kill();
         }
     }
+
+    private void bornCells(ArrayList<Cell> cells) {
+        for (Cell cell : cells) {
+            cell.born();
+        }
+    }
+
     private int getNeighboursOf(Cell cell) {
         int neighbours = 0;
         Coordinate position = cell.position;

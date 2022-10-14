@@ -17,4 +17,8 @@ public class Cell {
         // have we found wrong responsabilities?
         this.isAlive = false;
     }
+
+    public void born() {
+        this.isAlive = true;
+    }
 }

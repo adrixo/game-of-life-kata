@@ -65,4 +65,23 @@ class Gameshould {
         game.nextGen();
         assertThat(game.getBoard()).isEqualTo(expectedBoard);
     }
+
+    @Test public void
+    cells_are_born_when_they_have_3_neighbours() {
+        boolean[][] inputBoard = {
+                {false, false, false, false},
+                {false, true,  false, false},
+                {false, true,  true,  false},
+                {false, false, false, false}
+        };
+        boolean[][] expectedBoard = {
+                {false, false, false, false},
+                {false, true,  true, false},
+                {false, true,  true,  false},
+                {false, false, false, false}
+        };
+        game = new Game(inputBoard);
+        game.nextGen();
+        assertThat(game.getBoard()).isEqualTo(expectedBoard);
+    }
 }
