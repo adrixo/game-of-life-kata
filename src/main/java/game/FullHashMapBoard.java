@@ -21,10 +21,10 @@ public class FullHashMapBoard implements Board {
         ArrayList<Cell> cellsToBorn = new ArrayList<>();
         // what do we iterate, cells or coordinates?
         // iterate cells ->
-        //     where is the coordinate? inside the cell, thats not necesarry
+        //     where is the coordinate? inside the cell, thats not necessary
         //     easier to read
         // Iterate coordinates ->
-        //     less responsabilities on the cell,
+        //     less responsibilities on the cell,
         //     Should the cell know about itself?
         for(Cell cell : board.values()) {
             int neighbours = getNeighboursOf(cell);
@@ -53,19 +53,16 @@ public class FullHashMapBoard implements Board {
     private int getNeighboursOf(Cell cell) {
         int neighbours = 0;
         Coordinate position = cell.position;
-        for (int x = position.x-1; x <= position.x+1; x++) {
-            for (int y = position.y-1; y <= position.y+1; y++) {
-                Coordinate neighbourPosition = new Coordinate(x, y);
-                if (neighbourPosition.equals(position))
-                    continue;
+        for (Coordinate neighbourPosition : cell.position.getNeighbours()) {
+            if (neighbourPosition.equals(position))
+                continue;
 
-                if (!board.containsKey(neighbourPosition))
-                    continue;
+            if (!board.containsKey(neighbourPosition))
+                continue;
 
-                Cell neighbour = board.get(neighbourPosition);
-                if (neighbour.isAlive)
-                    neighbours++;
-            }
+            Cell neighbour = board.get(neighbourPosition);
+            if (neighbour.isAlive)
+                neighbours++;
         }
         return neighbours;
     }
