@@ -18,4 +18,19 @@ class Gameshould {
         assertEquals(emptyBoard, game.getBoard());
     }
 
+    @Test public void
+    keep_cells_alive_when_they_should_not_die() {
+        boolean[][] aliveCells = {
+                {false, true, false, false},
+                {true, false, true, false},
+                {true, false, true, false},
+                {false, true, false, false}
+        };
+        game = new Game(aliveCells);
+        game.nextGen();
+        game.nextGen();
+        game.nextGen();
+        assertEquals(aliveCells, game.getBoard());
+    }
+
 }
