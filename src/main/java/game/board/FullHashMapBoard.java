@@ -23,13 +23,6 @@ public class FullHashMapBoard implements Board {
     public void nextGen() {
         ArrayList<Cell> cellsToKill = new ArrayList<>();
         ArrayList<Cell> cellsToBorn = new ArrayList<>();
-        // what do we iterate, cells or coordinates?
-        // iterate cells ->
-        //     where is the coordinate? inside the cell, that's not necessary
-        //     easier to read
-        // Iterate coordinates ->
-        //     fewer responsibilities on the cell,
-        //     Should the cell know about itself?
         for(Cell cell : board.values()) {
             int neighbours = getAliveNeighboursOf(cell);
             if (cell.isAlive && (neighbours <= 1 || neighbours >= 4) ) {

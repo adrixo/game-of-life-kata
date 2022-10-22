@@ -10,7 +10,7 @@ public class Cell {
     // we need to check fist the neighbours and later apply the rules
     // if we don't want to duplicate the board (one for previous state, other for changes)
     // https://refactoring.guru/es/smells/temporary-field
-    private int numberOfNeighbours = -1;
+    private int numberOfAliveNeighbours = -1;
 
     public Cell(boolean status, Coordinate position) {
         this.isAlive = status;
@@ -35,10 +35,10 @@ public class Cell {
     }
 
     public void calculateNeighbours() {
-        numberOfNeighbours = 0;
+        numberOfAliveNeighbours = 0;
         for (Cell cell : neighbours) {
             if (cell.isAlive())
-                numberOfNeighbours++;
+                numberOfAliveNeighbours++;
         }
     }
 
@@ -52,12 +52,12 @@ public class Cell {
     }
 
     private void applyBornRules() {
-        if (!this.isAlive && numberOfNeighbours == 3)
+        if (!this.isAlive && numberOfAliveNeighbours == 3)
             born();
     }
 
     private void applyDeathRules() {
-        if (this.isAlive && (numberOfNeighbours <= 1 || numberOfNeighbours >= 4) ) {
+        if (this.isAlive && (numberOfAliveNeighbours <= 1 || numberOfAliveNeighbours >= 4) ) {
             kill();
         }
     }
